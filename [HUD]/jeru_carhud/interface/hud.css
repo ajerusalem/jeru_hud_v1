@@ -1,0 +1,223 @@
+@font-face {
+    font-family: "Oxanium";
+    src: url('fonts/oxanium.ttf') format('truetype')
+}
+
+body {
+    background-color: transparent;
+}
+
+svg {
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
+}
+
+#container {
+    position: fixed;
+    bottom: 9%;
+    left: 15.5%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.doors {
+    fill: rgba(50, 205, 50, .8);
+}
+.seatbelt {
+    fill: rgba(50, 205, 50, .8);
+}
+
+/* driver */
+.driver {
+    opacity: 0;
+}
+
+.driver #speedometer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    height: 75px;
+}
+.driver #speed-background, .driver #speed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 90px;
+    height: 75px;
+}
+.driver #speed-background path, .driver #speed path {
+    stroke-width: 2px;
+    fill: none;
+}
+.driver #speed-background path {
+    stroke: rgba(255, 255, 255, .4);
+}
+.driver #speed {
+    z-index: 2;
+}
+.driver #speed path {
+    stroke: rgba(255, 255, 255, 1);
+}
+.driver #speed-text {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, .8);
+    width: 90px;
+    line-height: 1.4rem;
+    font-family: 'Oxanium';
+    font-size: 12px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+}
+.driver #speed-text span {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5rem;
+}
+
+.driver .lights {
+    position: absolute;
+    bottom: 62px;
+    left: 0;
+}
+.driver .lights#light-dimmed {
+    fill: rgba(255, 215, 0, .8);
+}
+.driver .lights#light-high {
+    fill: rgba(0, 191, 255, .8);
+}
+
+.driver #engine {
+    position: absolute;
+    bottom: 62px;
+    left: 65px;
+    fill:rgba(255, 20, 60, .8);
+}
+
+.driver #tires {
+    position: absolute;
+    bottom: 4px;
+    left: 100px;
+    fill: rgba(255, 165, 0, .8);
+}
+
+.driver .doors {
+    position: absolute;
+    bottom: 33px;
+    left: 100px;
+}
+
+.driver .seatbelt {
+    position: absolute;
+    bottom: 62px;
+    left: 100px;
+}
+
+.driver #limiter, .driver #speed-limit {
+    position: absolute;
+    bottom: 82px;
+    left: 31px;
+    fill: rgba(255, 215, 0, .8);
+}
+.driver #speed-limit {
+    bottom: 72px;
+    left: 33px;
+    font-family: 'Oxanium';
+    font-size: 9px;
+    width: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, .8);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .8));
+}
+.driver #speed-limit.blink, .driver #limiter.blink {
+    color: rgba(255, 165, 0, .8);
+    fill: rgba(255, 165, 0, .8);
+}
+
+.driver .blinkers {
+    position: absolute;
+    bottom: 44px;
+    width: 18px;
+}
+.driver #blinker-left, .driver #blinker-right {
+    fill: rgba(255, 215, 0, .8);
+}
+.driver #blinker-left {
+    left: 20px;
+}
+.driver #blinker-right {
+    left: 52px;
+}
+
+.driver .fuel {
+    position: absolute;
+    bottom: 3px;
+    left: 75px;
+}
+.driver #fuel-background {
+    fill: rgba(255, 255, 255, .4);
+}
+.driver .fuel-display.blink #fuel-background {
+    fill: rgba(255, 165, 0, .8);
+}
+.driver #fuel-remaining {
+    height: 24px;
+    width: 24px;
+    overflow: hidden;
+    transition: all .5s linear;
+}
+.driver #fuel-alert {
+    position: absolute;
+    bottom: 0;
+    fill: rgba(255, 255, 255, .8);
+    filter: none;
+}
+.driver #fuel-off {
+    fill:rgba(255, 20, 60, .8);
+}
+.driver #fuel-background, .driver #fuel-alert, .driver #fuel-off {
+    opacity: 0;
+}
+.driver #fuel-electric {
+    opacity: 0;
+    left: 73px;
+}
+.driver #fuel-electric {
+    fill: rgba(255, 255, 255, .8);
+}
+
+/* passenger */
+.passenger {
+    opacity: 0;
+}
+.passenger .doors {
+    position: absolute;
+    bottom: 29px;
+    left: 0;
+}
+.passenger .seatbelt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* utils */
+.hide, .hide path{
+    color: rgba(255, 255, 255, .1) !important;
+    fill: rgba(255, 255, 255, .1) !important;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .1)) !important;
+}
+
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
